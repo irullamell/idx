@@ -9,7 +9,7 @@ A lightweight, always-on service that pings your Google IDX workspace to prevent
 - 🔐 Optional session cookie authentication
 - 📊 Ping statistics and status tracking
 - 🐳 Docker-ready with Fly.io configuration
-- ⚡ Ultra-lightweight (< 20MB container)
+- ⚡ Ultra-lightweight (< 70MB container)
 
 ## Quick Start
 
