@@ -1,0 +1,19 @@
+{
+  "name": "idx-keepalive",
+  "version": "1.0.0",
+  "description": "Lightweight keep-alive pinger for Google IDX workspaces",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "keywords": ["idx", "keepalive", "pinger"],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "puppeteer": "^22.0.0"
+  }
+}
