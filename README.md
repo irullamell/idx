@@ -13,7 +13,7 @@ A lightweight, always-on service that pings your Google IDX ([idx.google.com](ht
 - 🐳 Docker-ready with Fly.io configuration
 - ⚡ Ultra-lightweight (< 70MB container)
 
-![til](https://dysmorphia.dpdns.org/api/files/019b16c4-db03-79be-8632-ff7e7264aea7/example.gif?hash=895a088304f21824c95407cf3a9b4aa4&download=1)   
+![til](https://dysmorphia.dpdns.org/api/shares/e5bd97f7-9e5b-4d2f-9842-d19ef1dd5382/files/019b1ebd-7eb1-7f68-9631-f6dc0d860a6a/example.gif)   
 
 ## Quick Start
 
@@ -46,7 +46,6 @@ A lightweight, always-on service that pings your Google IDX ([idx.google.com](ht
 **Choose your platform:**
 - 📘 **[Render.com Deployment Guide](RENDER.md)** - Easiest setup with web UI
 - 📗 **[Fly.io Deployment Guide](DEPLOY.md)** - CLI-based deployment
-- 🟠 **[Koyeb Deployment Guide](KOYEB.md)** - GitHub integration option
 
 #### Quick Deploy to Fly.io
 
