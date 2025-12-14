@@ -1,8 +1,22 @@
 # Step-by-Step Deployment Guide
 
+## Choose Your Platform
+
+This project supports deployment to multiple cloud platforms:
+
+- 📘 **[Koyeb](KOYEB.md)** - Always-on, GitHub auto-deploy (Recommended)
+- 📙 **[Render.com](RENDER.md)** - Easiest web UI setup
+- 📗 **[Fly.io](DEPLOY.md)** - CLI-based, most regions available
+
+**All support free tiers!** Follow the guide for your chosen platform.
+
+---
+
+## Quick Start (All Platforms)
+
 ## Prerequisites
 - Your IDX workspace URL (e.g., `https://1234567890.idx.google.com`)
-- Fly.io account (free - sign up at fly.io)
+- Cloud platform account (Koyeb, Render.com, or Fly.io - all free)
 - Node.js installed on your PC
 
 ---
@@ -50,6 +64,73 @@ ls cookies.json
 You should see a `cookies.json` file in this folder.
 
 ---
+
+## STEP 3: Encode Cookies (for Koyeb/Render)
+
+**Skip this if using Fly.io** (Fly.io uses file upload instead)
+
+Run the encoder script:
+```powershell
+.\encode-cookies.ps1
+```
+
+This encodes your cookies to base64 and copies to clipboard. You'll need this for Koyeb or Render.com environment variables.
+
+---
+
+## STEP 4: Deploy to Your Platform
+
+**Choose one:**
+
+### Option A: Deploy to Koyeb (Recommended - Always On)
+See **[KOYEB.md](KOYEB.md)** for complete instructions.
+
+Quick summary:
+1. Create service on [Koyeb](https://app.koyeb.com/)
+2. Connect your GitHub repo or use Git
+3. Add environment variables:
+   - `GOOGLE_COOKIES_BASE64` = [from encode-cookies.ps1]
+   - `IDX_WORKSPACE_URL` = your workspace URL
+4. Deploy!
+
+### Option B: Deploy to Render.com (Easiest UI)
+See **[RENDER.md](RENDER.md)** for complete instructions.
+
+Quick summary:
+1. Create web service on [Render](https://dashboard.render.com/)
+2. Connect your GitHub repo
+3. Add environment variables (same as Koyeb)
+4. Deploy!
+
+### Option C: Deploy to Fly.io (Most Regions)
+See **[DEPLOY.md](DEPLOY.md)** for complete instructions.
+
+Quick summary:
+1. Install Fly CLI: `iwr https://fly.io/install.ps1 -useb | iex`
+2. Login: `fly auth login`
+3. Create app: `fly apps create idx-keepalive`
+4. Create volume: `fly volumes create idx_cookies --size 1`
+5. Set secrets: `fly secrets set IDX_WORKSPACE_URL="..."`
+6. Deploy: `fly deploy`
+7. Upload cookies via SFTP
+
+---
+
+## Platform Comparison
+
+| Feature | Koyeb | Render | Fly.io |
+|---------|-------|--------|--------|
+| **Always On** | ✅ Yes | ❌ Sleeps | ✅ Yes |
+| **Auto-deploy** | ✅ GitHub | ✅ GitHub | ❌ Manual |
+| **Setup** | Easy | Easy | Medium |
+| **Regions** | 4+ | 2+ | 30+ |
+| **Free RAM** | 512MB | 512MB | 256MB x3 |
+
+---
+
+## Original Fly.io Instructions (Deprecated - See DEPLOY.md)
+
+**Note:** These steps are kept for reference. Use the platform-specific guides above instead.
 
 ## STEP 3: Install Fly.io CLI
 
