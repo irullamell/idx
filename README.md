@@ -46,6 +46,7 @@ A lightweight, always-on service that pings your Google IDX ([idx.google.com](ht
 **Choose your platform:**
 - 📘 **[Render.com Deployment Guide](RENDER.md)** - Easiest setup with web UI
 - 📗 **[Fly.io Deployment Guide](DEPLOY.md)** - CLI-based deployment
+- 📙 **[Koyeb Deployment Guide](KOYEB.md)** - GitHub integration option
 
 #### Quick Deploy to Fly.io
 
