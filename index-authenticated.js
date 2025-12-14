@@ -17,8 +17,23 @@ let lastPingStatus = 'never pinged';
 let lastPingTime = null;
 let browser = null;
 
-// Load cookies from file
+// Load cookies from environment variable or file
 async function loadCookies() {
+  // First, try loading from base64-encoded environment variable (for Render.com)
+  if (process.env.GOOGLE_COOKIES_BASE64) {
+    try {
+      console.log('Loading cookies from GOOGLE_COOKIES_BASE64 environment variable...');
+      const json = Buffer.from(process.env.GOOGLE_COOKIES_BASE64, 'base64').toString('utf-8');
+      const cookies = JSON.parse(json);
+      console.log(`✓ Loaded ${cookies.length} cookies from environment variable`);
+      return cookies;
+    } catch (err) {
+      console.error('Failed to parse GOOGLE_COOKIES_BASE64:', err.message);
+      // Fall through to file-based loading
+    }
+  }
+  
+  // Fallback to file-based loading (for Fly.io or local)
   try {
     const cookiesData = await fs.readFile(CONFIG.COOKIES_FILE, 'utf8');
     return JSON.parse(cookiesData);
